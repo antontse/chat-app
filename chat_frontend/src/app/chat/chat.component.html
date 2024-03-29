@@ -1,0 +1,26 @@
+<!-- chat.component.html -->
+<div class="chat-container">
+  <ul class="messages">
+    <li *ngFor="let message of messages">
+      <div *ngIf="message.type === 'text'">
+        <b>{{ message.author }}:</b> {{ message.content }} <small>{{ message.timestamp }}</small>
+      </div>
+      <div *ngIf="message.type === 'video'">
+        <b>{{ message.author }}:</b> <small>{{ message.timestamp }}</small>
+        <video controls [src]="message.content" type="video/mp4"></video>
+      </div>
+    </li>
+  </ul>
+  <input type="file" accept="video/*" (change)="handleVideoUpload($event)">
+  <input [(ngModel)]="newMessage" placeholder="Type a message..." />
+  <button (click)="sendMessage()">Send</button>
+</div>
+<div class="chat-area">
+  <!-- Existing chat UI -->
+</div>
+<div class="user-list">
+  <h2>Connected Users</h2>
+  <ul>
+    <li *ngFor="let user of connectedUsers">{{ user }}</li>
+  </ul>
+</div>

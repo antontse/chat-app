@@ -1,0 +1,14 @@
+/* In chat.component.scss */
+.container {
+  .chat-area {
+    // Your existing styles
+    float: left;
+    width: 70%;
+  }
+
+  .user-list {
+    float: right;
+    width: 30%;
+    // Additional styling as needed
+  }
+}
